@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    height: 100vh;
+    background: linear-gradient(#87CEEB, #E0F6FF);
+    overflow: hidden;
+}
+
+.game-board {
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.floor {
+    position: fixed;
+    top: 500px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 500px);
+    background: url('../imagens/bloco-super-mario.png') repeat-x;
+    background-size: contain;
+    z-index: 1;
+}
+
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    animation: pipe-animation 1.5s infinite linear;
+    z-index: 3;
+}
+
+.mario {
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+}
+
+.jump {
+    animation: jump 500ms ease-out;
+}
+
+.clouds {
+    position: absolute;
+    width: 550px;
+    animation: clouds-animation 10s infinite linear;
+    z-index: 1;
+}
+
+@keyframes pipe-animation {
+    from {
+        right: -80px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+    40% {
+        bottom: 180px;
+    }
+    50% {
+        bottom: 180px;
+    }
+    60% {
+        bottom: 180px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes clouds-animation {
+    from {
+        right: -550px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+.score {
+  position: fixed;       /* Fixa na tela */
+  bottom: 80px;          /* Fica um pouco acima do chão, ajusta conforme o tamanho do solo */
+  left: 50%;             /* Centraliza horizontalmente */
+  transform: translateX(-50%);  /* Centraliza certinho */
+  background: rgba(0, 0, 0, 0.5); /* Fundo meio transparente pra destacar */
+  color: #fff;           /* Cor da letra branca pra aparecer bem */
+  padding: 8px 16px;
+  font-size: 90px;
+  font-weight: bold;
+  border-radius: 8px;
+  z-index: 1000;         /* Pra ficar na frente de tudo */
+  pointer-events: none;  /* Pra não atrapalhar clique no jogo */
+}
