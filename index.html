@@ -9,6 +9,18 @@
 
     <title>Mario Jump</title>
 </head>
+<style>
+    .floor {
+    position: fixed;
+    top: 500px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 500px);
+    background: url('imagens/bloco-super-mario.png') repeat-x;
+    background-size: contain;
+    z-index: 1;
+}
+</style>    
 <body>
     <div class="game-board">
         <img src="imagens/clouds.png" class="clouds">
